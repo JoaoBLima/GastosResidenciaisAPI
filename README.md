@@ -61,7 +61,7 @@ Aplicação web para controle de gastos residenciais, permitindo o cadastro de p
 
 ### Back-end
 - API REST em .NET 
-
+- Sql Server para persistência de dados.
 ---
 
 ## 🧱 Arquitetura do Front-end
