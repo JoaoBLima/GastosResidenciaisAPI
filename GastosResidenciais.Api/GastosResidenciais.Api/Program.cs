@@ -27,8 +27,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowReact",
+        policy =>
+        {
+            policy
+                .WithOrigins("http://localhost:5173")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
 
 var app = builder.Build();
+app.UseCors("AllowReact");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
